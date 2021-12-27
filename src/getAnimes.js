@@ -35,6 +35,12 @@ function renderAnime(_anime_id, _cover, _name, _sinopse) {
     btnDelete.classList.add("btn-delete");
     btnDelete.innerText = "Delete";
 
+    btnDelete.addEventListener("click", async () => {
+        await fetch(`http://localhost:3333/delete/${_anime_id}`);
+
+        window.location.reload();
+    })
+
     buttons.appendChild(btnEdit);
     buttons.appendChild(btnDelete);
 
